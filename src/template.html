@@ -1,14 +1,184 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛅</text></svg>"/>
     <title>Weather App</title>
-    <link rel='icon' href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛅</text></svg>'>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <h1>Your favourite weather app</h1>
+      <h1>Your favourite weather app</h1>
+      <div class="container">
+        <div class="form">
+          <form
+            action=""
+            id="search-form"
+            data-search-form=""
+            onsubmit="event.preventDefault();"
+          >
+            <input
+              type="text"
+              id="search-location"
+              data-search-input=""
+              required
+              />
+              <button id="search" data-search-button="" type="submit">
+                <?xml version="1.0" ?><svg class="feather feather-search" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
+            </button>
+          </form>
+        </div>
+        <div class="display-forecast">
+          <section class="address">
+            <div id="address">
+              <h4>Address</h4>
+              <h5>Resolved Address</h5>
+            </div>
+            <div id="lat-long">
+              <p>Latitude</p>
+              <p>Longitude</p>
+              <p>Timezone</p>
+            </div>
+            <div id="description">
+              <p>Description</p>
+            </div>
+          </section>
+          <section class="forecast">
+            <table>
+              <tr>
+                <th>Day 1</th>
+                <th>Day 2</th>
+                <th>Day 3</th>
+                <th>Day 4</th>
+                <th>Day 5</th>
+                <th>Day 6</th>
+                <th>Day 7</th>
+                <th>Day 7</th>
+              </tr>
+              <tr>
+                <td>datetime</td>
+                <td>datetime</td>
+                <td>datetime</td>
+                <td>datetime</td>
+                <td>datetime</td>
+                <td>datetime</td>
+                <td>datetime</td>
+                <td>datetime</td>
+              </tr>
+              <tr>
+                <td>descriptio</td>
+                <td>descriptio</td>
+                <td>descriptio</td>
+                <td>descriptio</td>
+                <td>descriptio</td>
+                <td>descriptio</td>
+                <td>descriptio</td>
+                <td>descriptio</td>
+              </tr>
+              <tr>
+                <td>feelslike</td>
+                <td>feelslike</td>
+                <td>feelslike</td>
+                <td>feelslike</td>
+                <td>feelslike</td>
+                <td>feelslike</td>
+                <td>feelslike</td>
+                <td>feelslike</td>
+              </tr>
+              <tr>
+                <td>humidity</td>
+                <td>humidity</td>
+                <td>humidity</td>
+                <td>humidity</td>
+                <td>humidity</td>
+                <td>humidity</td>
+                <td>humidity</td>
+                <td>humidity</td>
+              </tr>
+              <tr>
+                <td>precipitation</td>
+                <td>precipitation</td>
+                <td>precipitation</td>
+                <td>precipitation</td>
+                <td>precipitation</td>
+                <td>precipitation</td>
+                <td>precipitation</td>
+                <td>precipitation</td>
+              </tr>
+              <tr>
+                <td>precipitation type</td>
+                <td>precipitation type</td>
+                <td>precipitation type</td>
+                <td>precipitation type</td>
+                <td>precipitation type</td>
+                <td>precipitation type</td>
+                <td>precipitation type</td>
+                <td>precipitation type</td>
+              </tr>
+              <tr>
+                <td>precipitation prob</td>
+                <td>precipitation prob</td>
+                <td>precipitation prob</td>
+                <td>precipitation prob</td>
+                <td>precipitation prob</td>
+                <td>precipitation prob</td>
+                <td>precipitation prob</td>
+                <td>precipitation prob</td>
+              </tr>
+              <tr>
+                <td>pressure</td>
+                <td>pressure</td>
+                <td>pressure</td>
+                <td>pressure</td>
+                <td>pressure</td>
+                <td>pressure</td>
+                <td>pressure</td>
+                <td>pressure</td>
+              </tr>
+              <tr>
+                <td>snow</td>
+                <td>snow</td>
+                <td>snow</td>
+                <td>snow</td>
+                <td>snow</td>
+                <td>snow</td>
+                <td>snow</td>
+                <td>snow</td>
+              </tr>
+              <tr>
+                <td>sunrise</td>
+                <td>sunrise</td>
+                <td>sunrise</td>
+                <td>sunrise</td>
+                <td>sunrise</td>
+                <td>sunrise</td>
+                <td>sunrise</td>
+                <td>sunrise</td>
+              </tr>
+              <tr>
+                <td>sunset</td>
+                <td>sunset</td>
+                <td>sunset</td>
+                <td>sunset</td>
+                <td>sunset</td>
+                <td>sunset</td>
+                <td>sunset</td>
+                <td>sunset</td>
+              </tr>
+              <tr>
+                <td>temperature</td>
+                <td>temperature</td>
+                <td>temperature</td>
+                <td>temperature</td>
+                <td>temperature</td>
+                <td>temperature</td>
+                <td>temperature</td>
+                <td>temperature</td>
+              </tr>
+            </table>
+          </section>
+        </div>
+      </div>
     </main>
-</body>
+  </body>
 </html>
