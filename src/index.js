@@ -13,7 +13,7 @@ let forecastData;
 // Let's get back some basic forecast (sun, rain, wind, temperature) for now
 async function getForecastData() {
   const location = searchInput.value.replace(/ /g, "%20");
-  const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&elements=datetime%2Cname%2Caddress%2CresolvedAddress%2Clatitude%2Clongitude%2Ctempmax%2Ctemp%2Cfeelslike%2Cdew%2Chumidity%2Cprecip%2Cprecipprob%2Cpreciptype%2Csnow%2Cwindspeed%2Cwinddir%2Cpressure%2Ccloudcover%2Cuvindex%2Csunrise%2Csunset%2Cmoonphase%2Cconditions%2Cdescription%2Cicon%2Csource&include=fcst%2Cdays%2Chours&key=${API_KEY}&contentType=json`;
+  const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&elements=datetime%2Cname%2Caddress%2CresolvedAddress%2Clatitude%2Clongitude%2Ctempmax%2Ctemp%2Cfeelslike%2Cdew%2Chumidity%2Cprecip%2Cprecipprob%2Cpreciptype%2Csnow%2Cwindspeed%2Cwinddir%2Cpressure%2Ccloudcover%2Cuvindex%2Csunrise%2Csunset%2Cmoonphase%2Cconditions%2Cdescription%2Cicon%2Csource&include=fcst%2Cdays&key=${API_KEY}&contentType=json`;
   try {
     const response = await fetch(URL);
     const data = await response.json();
@@ -62,6 +62,33 @@ function CreateElement(tag, attributeName = "", attributeValue = "", content = "
 
       const descriptionDiv = new CreateElement("div", "id", "description", "", addressDiv);
       const descriptionP = new CreateElement("p", "", "", forecastData.description, descriptionDiv);
+
+      const forecastSection = new CreateElement("section", "class", "forecast", "", displayForecastContainer);
+      const table = new CreateElement("table", "", "", "", forecastSection);
+
+      const weatherElements = forecastData.days[0];
+      Object.keys(weatherElements).forEach((key) => {
+        const row = new CreateElement("tr", "data-value", key, "", table);
+        const rowHead = new CreateElement("th", "", "", key.charAt(0).toUpperCase() + key.slice(1), row);
+      });
+
+      const tableRows = document.querySelectorAll('tr');
+      console.log(tableRows)
+
+      for (let i = 0; i < forecastData.days.length - 8; i++) {
+        const weatherDay = forecastData.days[i];
+        console.log(i, weatherDay);
+
+        Object.entries(weatherDay).forEach(([key, value]) => {
+          for (let j = 0; j < tableRows.length; j++) {
+            if (key === tableRows[j].dataset.value) {
+            const tableData = new CreateElement("td", "", "", `${value}`, tableRows[j]);
+            }
+          }
+        });
+      }
+
+
 
 
 
