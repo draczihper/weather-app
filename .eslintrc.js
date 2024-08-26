@@ -4,6 +4,6 @@ module.exports = {
   "rules": {
     "no-undef": "warn",
     "no-unused-var": "warn",
-    "no-console": "off",
+    "no-console": "warn",
   },
 };
